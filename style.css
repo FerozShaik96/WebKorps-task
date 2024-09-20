@@ -8,7 +8,7 @@ body {
     padding: 20px;
     background-color: rgba(245, 222, 179, 0.1);
   }
-.form-container {
+/* .form-container {
     max-width: 400px;
     margin: 0 auto;
     display: none;
@@ -16,14 +16,66 @@ body {
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+} */
+
+.form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 200ms ease-in-out;
+    z-index: 10;
+    width: 500px;
+    max-width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
+.form-container.active{
+    transform: translate(-50%,-50%) scale(1);
+}
+.form-header{
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form-header .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#overlay{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: 200ms ease-in-out;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+#overlay.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
  .form-container h2 {
-    text-align: center;
     margin-bottom: 20px;
 }
 .form-group {
     margin-bottom: 15px;
+}.form-group.hide{
+    display: none;
 }
+
 .form-group label {
     display: block;
     margin-bottom: 5px;
@@ -77,4 +129,41 @@ body {
 .rateing-container{
     display: flex;
     column-gap: 50px;
+}
+
+/*  Edit Modal */
+.modal-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 200ms ease-in-out;
+}
+.modal-container.show{
+    pointer-events: all;
+    opacity: 1;
+}
+#close{
+    border: none;
+    outline: none;
+    font-size: 1.25rem;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.editModal{
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    max-width: 80%;
+    padding: 30px 50px;
 }

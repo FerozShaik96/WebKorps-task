@@ -8,10 +8,13 @@
 </head>
 
 <body>
-    <button id="btnClick">Click me </button>
-    <button id="addProduct">Add Product</button>
-    <div class="form-container">
-        <h2>Add Product</h2>
+    <button  id="btnClick">Click me </button>
+    <button data-modal-target="#modal" id="addProduct">Add Product</button>
+    <div class="form-container " id="modal">
+        <div class="form-header">
+            <h2>Add Product</h2>
+            <button  data-close-button class="close-button">&times;</button>
+        </div>
         <form action="#" onsubmit="addProducts(event)" id="productForm" method="post">
             <div class="form-group">
                 <label for="title">Title</label>
@@ -22,8 +25,8 @@
                 <input type="number" id="price" name="price" placeholder="Enter Price" required>
             </div>
             <div class="form-group">
-                <label for="desc">Description</label>
-                <input type="text" id="desc" name="desc" placeholder="Enter Description" required>
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" placeholder="Enter Description" required>
             </div>
             <div class="form-group">
                 <label for="category">Category</label>
@@ -43,9 +46,52 @@
             </div>
             <button type="submit" class="submit-btn">Submit</button>
         </form>
-
-        <div id="output" style="margin-top: 20px;"></div>
     </div>
+    <div class="modal-container" id="model_container">
+        <div class="editModal">
+            <div class="form-header">
+                <h2>Edit Product</h2>
+                <button  id="close">&times;</button>
+            </div>
+            <form action="#" id="edit-form" >
+                <div class="form-group">
+                    <label for="editTitle">Title</label>
+                    <input type="text" id="editTitle" name="editTitle" placeholder="Enter your Title" required>
+                </div>
+                <div class="form-group hide">
+                    <label for="id">ID</label>
+                    <input type="text" id="id" name="id"/>
+                </div>
+                <div class="form-group ">
+                    <label for="editPrice">Price</label>
+                    <input type="number" id="editPrice" step="0.01" name="editPrice" placeholder="Enter Price" required>
+                </div>
+                <div class="form-group">
+                    <label for="editDescription">Description</label>
+                    <input type="text" id="editDescription" name="editDescription" placeholder="Enter Description" required>
+                </div>
+                <div class="form-group">
+                    <label for="editCategory">Category</label>
+                    <input type="text" id="editCategory" name="editCategory" placeholder="Enter the Category" required>
+                </div>
+                <div class="form-group">
+                    <label for="editImage">Image</label>
+                    <input type="url" id="editImage" name="editImage" placeholder="Enter Image url" required>
+                </div>
+                <div class="form-group">
+                    <label for="editRate">Rating</label>
+                    <input type="number" id="editRate" step="0.1" name="editRate" placeholder="Enter The Rating" required>
+                </div>
+                <div class="form-group">
+                    <label for="editCount">Count</label>
+                    <input type="number" id="editCount" name="editCount" placeholder="Enter The Count" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    <div id="overlay"></div>
 
     <div id="container"></div>
     <script src="index.js"></script>
