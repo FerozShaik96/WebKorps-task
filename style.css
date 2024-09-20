@@ -1,0 +1,80 @@
+.hello{
+    font-size: px;
+}
+body {
+    font-size:14px;
+    font-weight: 500;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: rgba(245, 222, 179, 0.1);
+  }
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    display: none;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+ .form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-group input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.submit-btn{
+    padding: 8px 8px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+#container{
+    margin-top: 25px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    /* gap:50px;/ */
+    row-gap: 80px;
+    column-gap: 60px;
+    /* margin: 0 auto; */
+}
+.inner-Container{
+    padding: 20px;
+    width: 350px;
+    background-color: #fff;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 40px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+    /* text-align: center; */
+}
+.name{
+    font-size: 16px;
+    font-weight: 600;
+}
+.price::before{
+    content: "₹";
+} 
+.imge{
+    
+    width: 250px;
+    height: 300px;
+}
+
+
+/*  Rating container code */
+.rateing-container{
+    display: flex;
+    column-gap: 50px;
+}

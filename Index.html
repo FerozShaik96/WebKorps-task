@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<link lang="en">
+<link>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style.css" />
+<title>Basic Task</title>
+</head>
+
+<body>
+    <button id="btnClick">Click me </button>
+    <button id="addProduct">Add Product</button>
+    <div class="form-container">
+        <h2>Add Product</h2>
+        <form action="#" onsubmit="addProducts(event)" id="productForm" method="post">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="Enter your Title" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" id="price" name="price" placeholder="Enter Price" required>
+            </div>
+            <div class="form-group">
+                <label for="desc">Description</label>
+                <input type="text" id="desc" name="desc" placeholder="Enter Description" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
+                <input type="text" id="category" name="category" placeholder="Enter the Category" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="url" id="image" name="image" placeholder="Enter Image url" required>
+            </div>
+            <div class="form-group">
+                <label for="rate">Rating</label>
+                <input type="number" id="rate" step="0.1" name="rate" placeholder="Enter The Rating" required>
+            </div>
+            <div class="form-group">
+                <label for="count">Count</label>
+                <input type="number" id="count" name="count" placeholder="Enter The Count" required>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+
+        <div id="output" style="margin-top: 20px;"></div>
+    </div>
+
+    <div id="container"></div>
+    <script src="index.js"></script>
+</body>
+
+</html>
