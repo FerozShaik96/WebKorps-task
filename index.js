@@ -30,6 +30,7 @@ document.getElementById("btnClick").addEventListener("click", fetchData);
 
 //Fetching the Data when the page loads
 async function loadfetch() {
+    clearPage();
     const responseGet = await fetch('http://localhost:3000/users')
     if (responseGet.ok) {
         const data = await responseGet.json()
@@ -117,6 +118,11 @@ function showData(obj) {
         const delItem = await fetch(`http://localhost:3000/users/${obj.id}`, {
             method: "DELETE"
         })
+            if (delItem.ok) {
+                console.log('Item deleted');
+                clearPage();  // Clear the existing data
+                loadfetch();  // Fetch and display the updated data
+            }
     }
 
     //  Editing Functionality
@@ -158,7 +164,6 @@ function showData(obj) {
         const editobj={
             id,title,price,description,category,image,rate,count,rating
         }
-        console.log(editobj)
         const editData=await fetch(`http://localhost:3000/users/${id}`,{
             method:"PUT",
             headers:{
@@ -166,8 +171,13 @@ function showData(obj) {
             },
             body:JSON.stringify(editobj)
         })
-        
-        console.log(title,price,description,image,category,rating)
+        if (editData.ok) {
+            console.log('Data is Edited on Json-Server');
+            modalContainer.classList.remove('show');  
+            clearPage();  
+            loadfetch();
+        }
+          
     }
     closeButton.addEventListener("click", () => {
         modalContainer.classList.remove("show")
@@ -237,12 +247,17 @@ async function addProducts(event) {
     });
     if (postData.ok) {
         console.log('Data is Added to Json-Server')
+        document.querySelector(".form-container").classList.remove("active");
+        document.getElementById("overlay").classList.remove("active");
+            clearPage();  
+            loadfetch();  
+        
     }
-    const formStyle = document.querySelector(".form-container");
-    const displayForm = getComputedStyle(formStyle).display;
-    if (displayForm === "block") {
-        formStyle.style.display = "none"
-    }
+    // const formStyle = document.querySelector(".form-container");
+    // const displayForm = getComputedStyle(formStyle).display;
+    // if (displayForm === "block") {
+    //     formStyle.style.display = "none"
+    // }
     const responseGet = await fetch('http://localhost:3000/users')
     if (responseGet.ok) {
         const data = await responseGet.json()
@@ -250,4 +265,10 @@ async function addProducts(event) {
             showData(data[i])
         }
     }
+}
+
+
+function clearPage() {
+    const parentEl = document.getElementById("container");
+    parentEl.innerHTML = '';  // Clear all child elements (products) in the container
 }
