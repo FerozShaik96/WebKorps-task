@@ -98,6 +98,7 @@ body {
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
+    justify-content: flex-start;
     /* gap:50px;/ */
     row-gap: 80px;
     column-gap: 60px;
