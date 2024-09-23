@@ -130,6 +130,7 @@ body {
 .inner-Container{
     padding: 20px;
     width: 350px;
+    height: 680px;
     background-color: #fff;
     box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 40px 0 rgba(0, 0, 0, 0.19);
     border-radius: 20px;
@@ -164,11 +165,8 @@ body {
     margin: auto ;
 }
 .category{
-    /* position: absolute; */
-    
-    /* top: 20px;
-    left: 0px; */
     float: left;
+    margin-left: -20px;
     width: 150px;
     text-align: center;
     background-color: rgba(205, 58, 58, 0.3);
@@ -206,9 +204,13 @@ body {
     margin-top: 20px;
 }
 .description{
-    
+    /* display: inline-block; */
+    height: 70px;
     color: dimgrey;
     margin-bottom: 10px;
+    letter-spacing: 1px;
+    font-size: 12px;
+    /* height: 100px; */
 }
 .rating::before{
 content: "⭐";

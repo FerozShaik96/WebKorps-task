@@ -68,7 +68,8 @@ function showData(obj) {
     // To Display Title on the page
 
     const nameTag = document.createElement("h2");
-    nameTag.textContent = obj.title;
+    let new_Name=obj.title.length>55?obj.title.substring(0,55)+"...":obj.title
+    nameTag.textContent = new_Name;
     nameTag.classList = "name";
     childEl.appendChild(nameTag);
 
@@ -76,7 +77,9 @@ function showData(obj) {
 
     const desTag = document.createElement("h5");
     desTag.classList = "description";
-    desTag.textContent = obj.description;
+    let new_Str=obj.description.length>300?obj.description.substring(0,240)+"...":obj.description;
+    desTag.textContent = new_Str;
+    // desTag.textContent = obj.description;
     childEl.appendChild(desTag);
     
     // To display a Rating container 
