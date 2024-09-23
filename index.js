@@ -13,7 +13,7 @@ async function fetchData() {
             }
         }
         for (let i = 0; i < dataArray.length; i++) {
-            const myData = await fetch(`http://localhost:3000/users`, {
+            const myData = await fetch(`https://jsonserver-3-wo8n.onrender.com/users`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -31,7 +31,7 @@ document.getElementById("btnClick").addEventListener("click", fetchData);
 //Fetching the Data when the page loads
 async function loadfetch() {
     clearPage();
-    const responseGet = await fetch('http://localhost:3000/users')
+    const responseGet = await fetch('https://jsonserver-3-wo8n.onrender.com/users')
     if (responseGet.ok) {
         const data = await responseGet.json()
         countId = data.length
@@ -50,11 +50,14 @@ function showData(obj) {
     childEl.classList = "inner-Container";
     parentEl.appendChild(childEl);
 
+    const imageDiv = document.createElement("div")
+    imageDiv.classList = "image-container";
     // To Display Image on the page
     const imageTag = document.createElement("img");
     imageTag.classList = "imge";
     imageTag.src = obj.image;
-    childEl.appendChild(imageTag);
+    imageDiv.appendChild(imageTag);
+    childEl.appendChild(imageDiv)
 
     // To Display Title on the page
 
@@ -69,35 +72,37 @@ function showData(obj) {
     desTag.classList = "description";
     desTag.textContent = obj.description;
     childEl.appendChild(desTag);
-
+    
     // To display a Rating container 
     const ratingDiv = document.createElement("div")
-    ratingDiv.classList = "rateing-container";
+    ratingDiv.classList = "rating-container";
+    // To Display Price on the page
+    const priceTag = document.createElement("p")
+    priceTag.textContent = obj.price;
+    priceTag.classList = "price";
+    ratingDiv.appendChild(priceTag);
+    
+
 
     // To Display Rating on the page    
 
     const rateTag = document.createElement("p");
     childEl.appendChild(ratingDiv);
-    rateTag.classList = "rateing";
+    rateTag.classList = "rating";
     rateTag.textContent = obj.rating.rate;
     ratingDiv.appendChild(rateTag);
 
     // To Display Count on the page
     const countTag = document.createElement("p")
     countTag.classList = "count";
-    countTag.textContent = obj.rating.count;
+    countTag.textContent = `SoldOut :- ${obj.rating.count}`
     ratingDiv.appendChild(countTag);
 
-    // To Display Price on the page
-    const priceTag = document.createElement("p")
-    priceTag.textContent = obj.price;
-    priceTag.classList = "price";
-    childEl.appendChild(priceTag);
 
     // To Display Category on the page
     const categoryTag = document.createElement("p");
     categoryTag.textContent = obj.category;
-    category.classList = "category";
+    categoryTag.classList = "category";
     childEl.appendChild(categoryTag);
 
     // To Add Edit button to Display
@@ -115,7 +120,7 @@ function showData(obj) {
 
     // Delete functionality 
     deleteBtn.onclick = async () => {
-        const delItem = await fetch(`http://localhost:3000/users/${obj.id}`, {
+        const delItem = await fetch(`https://jsonserver-3-wo8n.onrender.com/users/${obj.id}`, {
             method: "DELETE"
         })
             if (delItem.ok) {
@@ -164,7 +169,7 @@ function showData(obj) {
         const editobj={
             id,title,price,description,category,image,rate,count,rating
         }
-        const editData=await fetch(`http://localhost:3000/users/${id}`,{
+        const editData=await fetch(`https://jsonserver-3-wo8n.onrender.com/users/${id}`,{
             method:"PUT",
             headers:{
                 "content-type":"application/json",
@@ -238,7 +243,7 @@ async function addProducts(event) {
         image,
         rating
     }
-    const postData = await fetch('http://localhost:3000/users', {
+    const postData = await fetch('https://jsonserver-3-wo8n.onrender.com/users', {
         method: "POST",
         headers: {
             "content-type": "application/json"
@@ -258,7 +263,7 @@ async function addProducts(event) {
     // if (displayForm === "block") {
     //     formStyle.style.display = "none"
     // }
-    const responseGet = await fetch('http://localhost:3000/users')
+    const responseGet = await fetch('https://jsonserver-3-wo8n.onrender.com/users')
     if (responseGet.ok) {
         const data = await responseGet.json()
         for (let i = 0; i < data.length; i++) {
