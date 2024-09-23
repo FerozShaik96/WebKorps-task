@@ -49,6 +49,12 @@ function showData(obj) {
     const childEl = document.createElement("div")
     childEl.classList = "inner-Container";
     parentEl.appendChild(childEl);
+    
+    // To Display Category on the page
+    const categoryTag = document.createElement("p");
+    categoryTag.textContent = obj.category;
+    categoryTag.classList = "category";
+    childEl.appendChild(categoryTag);
 
     const imageDiv = document.createElement("div")
     imageDiv.classList = "image-container";
@@ -99,11 +105,6 @@ function showData(obj) {
     ratingDiv.appendChild(countTag);
 
 
-    // To Display Category on the page
-    const categoryTag = document.createElement("p");
-    categoryTag.textContent = obj.category;
-    categoryTag.classList = "category";
-    childEl.appendChild(categoryTag);
 
     // To Add Edit button to Display
     const editBtn = document.createElement('button')
@@ -135,8 +136,6 @@ function showData(obj) {
     const modalContainer = document.getElementById("model_container")
     const closeButton = document.getElementById("close")
     editBtn.onclick = async () => {
-       
-        
         modalContainer.classList.add('show')
         document.getElementById("editTitle").value = obj.title
         document.getElementById("editPrice").value = obj.price

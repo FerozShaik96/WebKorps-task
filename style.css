@@ -80,7 +80,7 @@ body {
     right: 0;
     transition: 200ms ease-in-out;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     pointer-events: none;
 }
 #overlay.active{
@@ -134,7 +134,7 @@ body {
     box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 40px 0 rgba(0, 0, 0, 0.19);
     border-radius: 20px;
     /* text-align: center; */
-    position: relative;
+    /* position: relative; */
 }
 .price{
     
@@ -164,9 +164,11 @@ body {
     margin: auto ;
 }
 .category{
-    position: absolute;
-    top: 20px;
-    left: 0px;
+    /* position: absolute; */
+    
+    /* top: 20px;
+    left: 0px; */
+    float: left;
     width: 150px;
     text-align: center;
     background-color: rgba(205, 58, 58, 0.3);
@@ -215,7 +217,8 @@ text-align: center;
 }
 
 .count{
-    font-size: 18px;
+    font-size: 17px;
+    
 }
 /*  Rating container code */
 .rating-container{
@@ -239,7 +242,7 @@ text-align: center;
     width: 100vw;
     opacity: 0;
     pointer-events: none;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     transition: 200ms ease-in-out;
 }
 .modal-container.show{
@@ -262,4 +265,5 @@ text-align: center;
     width: 500px;
     max-width: 80%;
     padding: 30px 50px;
+    z-index: 10;
 }
